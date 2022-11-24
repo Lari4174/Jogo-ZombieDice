@@ -3,7 +3,7 @@ import random
 print("ZOMBIE DICE (Prototipo Semana 4) ");
 print("Seja bem-vindo ao jogo Zombie Dice!");
 numJogadores = 0;
-	
+score = [];
 while numJogadores < 2:	
 	numJogadores = int(input("Informe a quantidade de jogadores: "));
 	if numJogadores < 2:
@@ -12,17 +12,17 @@ while numJogadores < 2:
 
 listaJogadores = []; #aqui é a lista da quantidade dos jogadores
 for i in range(numJogadores): #Aqui é a nomeclatura dos jogadores, onde começará do 1, nomeando-os com o "for" até atribuir os nomes a todos os jogadores da variável numJogadores
-	print("Informe o nome do jogador ",(i+1) ,": ");
-	nome = input();
-	listaJogadores.append(nome);
+  print("Informe o nome do jogador ",(i+1) ,": ");
+  nome = input();
+  score.append(0);
+  listaJogadores.append(nome);
   #para ir adicionando a lista o nome dos jogadores
-	listaJogadores[i] = nome; 
+  listaJogadores[i] = nome; 
 
 dadoVerde = "CPCTPC";
 dadoAmarelo = "TPCTPC";
 dadoVermelho = "TPTCPT";
 #Definido as variáveis que cada face do dado terá
-score = [];
 listaDados = [
 					dadoVerde,dadoVerde,dadoVerde,dadoVerde,dadoVerde,dadoVerde,
 					dadoAmarelo, dadoAmarelo, dadoAmarelo, dadoAmarelo,
@@ -30,6 +30,7 @@ listaDados = [
 	];
 #e aqui a quantidade de dados verdes, amarelos e vermelhos do jogo
 print("INICIANDO O JOGO...");
+scoreJogador = [];
 jogadorAtual = 0;
 dadosSorteados = [];
 tiros = 0;
@@ -70,7 +71,10 @@ while True: #vai se repetir até ser forçadamente parado
   print("TIROS: ", tiros);
   if tiros >= 3:
     print("AVISO: você perdeu seu score");
+    if jogadorAtual == len(listaJogadores):
+      jogadorAtual = 0;
     jogadorAtual = jogadorAtual + 1;
+    #e se for o último jogador ein ein ein ein?
     dadosSorteados = [];
     tiros = 0;
     cerebros = 0;
@@ -79,11 +83,15 @@ while True: #vai se repetir até ser forçadamente parado
     #####Precisa de um verificador para passar, talvez um if len para pular essa parte da repetição e ir para o próximo código####
   continuarTurno = input("AVISO: Voce deseja continuar jogando dados? (s=sim / n=nao)");
   if continuarTurno == 'n':
+    pontua = cerebros;
+    Tpontua = score[jogadorAtual] + pontua;
+    score[jogadorAtual] = Tpontua;
     jogadorAtual = jogadorAtual + 1;
     dadosSorteados = [];
     tiros = 0;
     cerebros = 0;
     passos = 0;
+    print(score);
     if jogadorAtual == len(listaJogadores):
       continuarJogando = input("AVISO: todos os jogadores querem jogar mais uma rodada? (s=sim / n=nao)");
       #colocar um for para a lista de jogadores imprimindo o score de cada um
@@ -100,8 +108,11 @@ while True: #vai se repetir até ser forçadamente parado
     print("Iniciando mais uma rodada do turno atual...");
     dadosSorteados = [];
     #última condicional para verificar caso haja mais um turno a ocorrer
+print(score);
 ##  O QUE FAZER?  ##
-# criar o placar do jogo e armazenar em variáveis
+# criar o placar com tupla no final
+#verificador de pontuação, quando atingir uma certa quantidade, criar um alerta sobre e que o jogo irá encerrar
 # criar uma opção para ver os dados que estão no copo
 # criar uma forma de que os dados não jogados sejam re-rolados
 # utilizar a tupla para mostrar o resultado final, fazendo a junção de nome de jogador e o score.
+#retirar da lista com o numerador do jogador, depois adicionar 
