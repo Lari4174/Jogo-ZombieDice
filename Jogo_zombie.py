@@ -11,17 +11,18 @@ while numJogadores < 2:
 #aqui vai ser definido quantos jogadores serão na partida
 
 listaJogadores = []; #aqui é a lista da quantidade dos jogadores
-
 for i in range(numJogadores): #Aqui é a nomeclatura dos jogadores, onde começará do 1, nomeando-os com o "for" até atribuir os nomes a todos os jogadores da variável numJogadores
 	print("Informe o nome do jogador ",(i+1) ,": ");
 	nome = input();
-	listaJogadores.append(nome); #para ir adicionando a lista o nome dos jogadores
+	listaJogadores.append(nome);
+  #para ir adicionando a lista o nome dos jogadores
 	listaJogadores[i] = nome; 
 
 dadoVerde = "CPCTPC";
 dadoAmarelo = "TPCTPC";
 dadoVermelho = "TPTCPT";
 #Definido as variáveis que cada face do dado terá
+score = [];
 listaDados = [
 					dadoVerde,dadoVerde,dadoVerde,dadoVerde,dadoVerde,dadoVerde,
 					dadoAmarelo, dadoAmarelo, dadoAmarelo, dadoAmarelo,
@@ -34,6 +35,7 @@ dadosSorteados = [];
 tiros = 0;
 cerebros = 0;
 passos = 0;
+
 #aqui é setado as variáveis de pontuação de jogador
 while True: #vai se repetir até ser forçadamente parado
   print("TURNO DO JOGADOR ", listaJogadores[jogadorAtual]);
@@ -98,7 +100,8 @@ while True: #vai se repetir até ser forçadamente parado
     print("Iniciando mais uma rodada do turno atual...");
     dadosSorteados = [];
     #última condicional para verificar caso haja mais um turno a ocorrer
-#  O QUE FAZER?
-# criar o algoritimo para ele dar stop quando tomar 3 tiros e passar para o próximo jogador
+##  O QUE FAZER?  ##
 # criar o placar do jogo e armazenar em variáveis
-# está sendo completada apenas uma rodada, mas precisa ter quantas quiser.
+# criar uma opção para ver os dados que estão no copo
+# criar uma forma de que os dados não jogados sejam re-rolados
+# utilizar a tupla para mostrar o resultado final, fazendo a junção de nome de jogador e o score.
