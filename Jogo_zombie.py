@@ -66,6 +66,10 @@ while True: #vai se repetir até ser forçadamente parado
 	print("SCORE ATUAL: ");
 	print("CEREBROS: ", cerebros);
 	print("TIROS: ", tiros);
+  if tiros >= 3:
+    print("Você perdeu seu score");
+    continue;
+    #####comando para passar para o próximo jogador####
 	continuarTurno = input("AVISO: Voce deseja continuar jogando dados? (s=sim / n=nao)");
 	if continuarTurno == 'n':
 		jogadorAtual = jogadorAtual + 1;
@@ -74,6 +78,12 @@ while True: #vai se repetir até ser forçadamente parado
 		cerebros = 0;
 		passos = 0;
 		if jogadorAtual == len(listaJogadores):
+      #colocar um for para a lista de jogadores imprimindo o score de cada um
+      continuarJogando = input("AVISO: todos os jogadores querem jogar mais uma rodada? (s=sim / n=nao)"); #aparentemente está dando erro nessa linha mas não sei o porquê.
+      if (continuarJogando == 's'):
+        print("Iniciando mais um turno");
+        continue;
+      else:
 			print("Finalizando prototipo do jogo...");
 			break;
 	#a partir do momento que todos os jogadores encerrarem o seu turno, o jogo encerra
@@ -81,3 +91,8 @@ while True: #vai se repetir até ser forçadamente parado
 		print("Iniciando mais uma rodada do turno atual...");
 		dadosSorteados = [];
 	#última condicional para verificar caso haja mais um turno a ocorrer
+
+#  O QUE FAZER?
+# criar o algoritimo para ele dar stop quando tomar 3 tiros e passar para o próximo jogador
+# criar o placar do jogo e armazenar em variáveis
+# está sendo completada apenas uma rodada, mas precisa ter quantas quiser.
