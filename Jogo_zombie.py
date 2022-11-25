@@ -89,13 +89,9 @@ while True:
     #####Precisa de um verificador para passar, talvez um if len para pular essa parte da repetição e ir para o próximo código####
   else:
     VerificadorV = cerebros + score[jogadorAtual];
-    if VerificadorV >= 16:
+    if VerificadorV >= 5:
       print("Você atingiu o placar para ganhar, com: " + str(VerificadorV)); 
       listaGa[jogadorAtual] = VerificadorV;
-      
-      #colocar um verificador para ver se a pessoa não vai ser adicionada duas vezes, o que é bem fácil eu acho... achei errado#
-    continuarTurno = input("AVISO: Voce deseja continuar jogando dados? (s=sim / n=nao)");
-    if continuarTurno == 'n':
       pontua = cerebros;
       Tpontua = score[jogadorAtual] + pontua;
       score[jogadorAtual] = Tpontua;
@@ -106,6 +102,19 @@ while True:
       cerebros = 0;
       passos = 0;
       pontua = 0;
+    else:
+      continuarTurno = input("AVISO: Voce deseja continuar jogando dados? (s=sim / n=nao)");
+      if continuarTurno == 'n':
+        pontua = cerebros;
+        Tpontua = score[jogadorAtual] + pontua;
+        score[jogadorAtual] = Tpontua;
+        print("sua pontuação atual é: " + str(score[jogadorAtual]));
+        jogadorAtual = jogadorAtual + 1;
+        dadosSorteados = [];
+        tiros = 0;
+        cerebros = 0;
+        passos = 0;
+        pontua = 0;
   if VerificadorT == False:
     print("Finalizando prototipo do jogo...");
     break; 
@@ -134,8 +143,9 @@ for i in range (numJogadores):
   print("o jogador: " + str(listaJogadores[jogadorAtual]) + " fez esta pontuação: " +  str(score[jogadorAtual]));  
   jogadorAtual = jogadorAtual + 1;
 ##  O QUE FAZER?  ##
-# verificador de pontuação, quando atingir uma certa quantidade, criar um alerta sobre e que o jogo irá encerrar
 # criar uma opção para ver os dados que estão no copo
 # criar uma forma de que os dados que cairam passos sejam re-rolados
 # utilizar a tupla para mostrar o resultado final, fazendo a junção de nome de jogador e o score.
 print(listaGa);
+
+
