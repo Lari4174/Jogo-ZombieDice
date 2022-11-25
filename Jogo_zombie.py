@@ -39,6 +39,9 @@ cerebros = 0;
 passos = 0;
 pontua = 0;
 listaGa = [];
+for i in range(numJogadores):
+  listaGa.append(0);
+print(listaGa)
 while True: 
   print("TURNO DO JOGADOR ", listaJogadores[jogadorAtual]);
   for i in range(0,3,1):
@@ -88,7 +91,7 @@ while True:
     VerificadorV = cerebros + score[jogadorAtual];
     if VerificadorV >= 16:
       print("Você atingiu o placar para ganhar, com: " + str(VerificadorV)); 
-      listaGa.append(jogadorAtual);
+      listaGa[jogadorAtual] = VerificadorV;
       
       #colocar um verificador para ver se a pessoa não vai ser adicionada duas vezes, o que é bem fácil eu acho... achei errado#
     continuarTurno = input("AVISO: Voce deseja continuar jogando dados? (s=sim / n=nao)");
